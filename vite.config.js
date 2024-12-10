@@ -6,6 +6,4 @@ export default defineConfig({
   build: {
     outDir: "../dist", // Chemin vers le dossier de sortie
   },
-
-  // Chemin vers le dossier de sortie
 });
