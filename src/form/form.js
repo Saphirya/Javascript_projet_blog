@@ -1,16 +1,37 @@
 import "../assets/styles/styles.scss";
 import "./form.scss";
 
-//recuperation du formulaire
 const form = document.querySelector("form");
+const errorElement = document.querySelector("#errors");
 let errors = [];
-//On ecoute le submit du formulaire
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  //creation du formData
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
   const formData = new FormData(form);
-  console.log(formData);
-  //transformer en objet javascript et en json
-  const json = JSON.stringify(Object.fromEntries(formData.entries()));
-  console.log(json);
+  const article = Object.fromEntries(formData.entries());
+  if (formIsValid(article)) {
+    const json = JSON.stringify(article);
+    // requête ici !
+  }
 });
+
+const formIsValid = (article) => {
+  errors = [];
+
+  if (!article.author || !article.category || !article.content) {
+    errors.push("Vous devez renseigner tous les champs");
+  } else {
+    errors = [];
+  }
+  if (errors.length) {
+    let errorHTML = "";
+    errors.forEach((e) => {
+      errorHTML += `<li>${e}</li>`;
+    });
+    errorElement.innerHTML = errorHTML;
+    return false;
+  } else {
+    errorElement.innerHTML = "";
+    return true;
+  }
+};
