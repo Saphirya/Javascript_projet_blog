@@ -21,7 +21,28 @@
         </ul>
       </header>
 
-      <div class="content"></div>
+      <div class="content">
+        <form>
+          <h2 class="title-underline">Ajouter un article</h2>
+          <div class="form-group">
+            <label>Auteur</label>
+            <input type="text" name="author" />
+          </div>
+          <div class="form-group">
+            <label>Catégorie</label>
+            <input type="text" name="category" />
+          </div>
+          <div class="form-group">
+            <label>Article</label>
+            <textarea name="article"></textarea>
+          </div>
+          <ul id="errors"></ul>
+          <div class="form-btn-container">
+            <button class="btn btn-secondary">Annuler</button>
+            <button class="btn btn-primary">Sauvegarder</button>
+          </div>
+        </form>
+      </div>
       <footer>© blog</footer>
     </div>
   </body>
