@@ -3,12 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.scss" />
     <title>Blog</title>
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <a href="./form/form.html">Formulaire</a><br /><br />
-    <img src="./assets/images/capture.png" alt="capture" />
+    <div class="container">
+      <header>
+        <a class="header-brand" href="./index.html">Blog</a>
+
+        <ul>
+          <li><a class="header-nav active" href="./index.html">Accueil</a></li>
+          <li>
+            <a class="header-nav" href="./form/form.html">Créer un article</a>
+          </li>
+        </ul>
+      </header>
+
+      <div class="content"></div>
+      <footer>© blog</footer>
+    </div>
   </body>
 </html>
