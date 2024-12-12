@@ -46,6 +46,7 @@ header {
 }
 
 .content {
+  background-color: var(--divider);
   grid-area: content;
   padding: 20px;
 }
