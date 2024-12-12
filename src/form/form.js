@@ -1,3 +1,4 @@
+import "../assets/javascripts/topbar.js";
 import "../assets/styles/styles.scss";
 import "./form.scss";
 

@@ -3,6 +3,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./form.scss" />
+    <script
+    src="https://kit.fontawesome.com/e261d12f99.js"
+    crossorigin="anonymous"
+  ></script>
     <title>Blog</title>
     <script type="module" src="./form.js"></script>
   </head>
@@ -10,15 +14,17 @@
     <div class="container">
       <header>
         <a class="header-brand" href="/">Blog</a>
-
-        <ul>
-          <li><a class="header-nav" href="/">Accueil</a></li>
-          <li>
-            <a class="header-nav active" href="/form/form.html"
-              >Créer un article</a
-            >
-          </li>
-        </ul>
+        <div class="header-menu">
+          <ul>
+            <li><a class="header-nav " href="/">Accueil</a></li>
+            <li>
+              <a class="header-nav active" href="/form/form.html">Créer un article</a>
+            </li>
+          </ul>
+          <div class="header-menu-icon">
+            <i class="fa-solid fa-bars"> </i>
+          </div>
+        </div>
       </header>
 
       <div class="content">
