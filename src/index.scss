@@ -14,6 +14,7 @@
       flex-direction: column;
       align-items: center;
       box-shadow: var(--box-shadow);
+      margin: 5rem;
 
       img {
         height: 6rem;
@@ -31,6 +32,7 @@
       }
       .article-content {
         max-width: 550px;
+        white-space: pre-line;
       }
       .article-actions {
         width: 100%;

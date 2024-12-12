@@ -25,6 +25,11 @@
     background-color: white;
     color: var(--primary);
   }
+  &-danger {
+    border: 1px solid var(--error);
+    background-color: white;
+    color: var(--error);
+  }
 }
 
 .text {
