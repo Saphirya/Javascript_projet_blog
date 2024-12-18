@@ -10,10 +10,19 @@ const createArticles = (articles) => {
     articleDom.innerHTML = `
       <img src="${article.image}" alt="profil" />
       <h2>${article.title}</h2>
-      <p class="article-author">Auteur : ${article.author} - ${article.category}</p>
+      <p class="article-author">Auteur : ${article.author} - ${new Date(
+      article.createdAt
+    ).toLocaleDateString("fr-FR", {
+      weekday: "long",
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    })}</p>
       <p class="article-content">${article.content}</p>
       <div class="article-actions">
-        <button class="btn btn-danger" data-id="${article._id}">Supprimer</button>
+        <button class="btn btn-danger" data-id="${
+          article._id
+        }">Supprimer</button>
         </div>
     `;
     return articleDom;

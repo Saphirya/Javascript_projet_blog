@@ -4,7 +4,13 @@ import "./form.scss";
 
 const form = document.querySelector("form");
 const errorElement = document.querySelector("#errors");
+const btnCancel = document.querySelector(".btn-secondary");
 let errors = [];
+
+btnCancel.addEventListener("click", (event) => {
+  event.preventDefault();
+  location.assign("/");
+});
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -20,9 +26,9 @@ form.addEventListener("submit", async (event) => {
           "Content-Type": "application/json",
         },
       });
-
-      const body = await response.json();
-      console.log(body);
+      if (response.status < 299) {
+      }
+      location.assign("/");
     } catch (e) {
       console.error("e : ", erreur);
     }
