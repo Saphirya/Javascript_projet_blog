@@ -23,6 +23,9 @@ const createArticles = (articles) => {
         <button class="btn btn-danger" data-id="${
           article._id
         }">Supprimer</button>
+        <button class="btn btn-primary" data-id="${
+          article._id
+        }">Modifier</button>
         </div>
     `;
     return articleDom;
@@ -30,6 +33,24 @@ const createArticles = (articles) => {
   articleContainerElement.innerHTML = "";
   articleContainerElement.append(...articlesDom);
   const deleteButtons = articleContainerElement.querySelectorAll(".btn-danger");
+  const editButtons = articleContainerElement.querySelectorAll(".btn-primary");
+  editButtons.forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      try {
+        const target = event.target;
+        const articleId = target.dataset.id;
+        const response = await fetch(
+          `https://restapi.fr/api/article/${articleId}`
+        );
+        const article = await response.json();
+        console.log(article);
+        location.assign(`/form/form.html?id=${articleId}`);
+      } catch (e) {
+        console.error(e);
+      }
+    });
+  });
+
   console.log(deleteButtons);
 
   deleteButtons.forEach((button) => {
