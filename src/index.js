@@ -124,9 +124,11 @@ const createMenuCategories = () => {
     }
   }, {});
 
-  const categoriesArr = Object.keys(categories).map((category) => {
-    return [category, categories[category]];
-  });
+  const categoriesArr = Object.keys(categories)
+    .map((category) => {
+      return [category, categories[category]];
+    })
+    .sort((c1, c2) => c1[0].localeCompare(c2[0]));
   displayMenuCategories(categoriesArr);
   console.log(categoriesArr);
 };
