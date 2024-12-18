@@ -73,23 +73,23 @@ form.addEventListener("submit", async (event) => {
             "Content-Type": "application/json",
           },
         });
+      } else {
+        response = await fetch("https://restapi.fr/api/article", {
+          method: "POST",
+          body: json,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
       }
-      response = await fetch("https://restapi.fr/api/article", {
-        method: "POST",
-        body: json,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
       if (response.status < 299) {
+        window.location.assign("/index.html");
       }
-      location.assign("/");
     } catch (e) {
-      console.error("e : ", erreur);
+      console.error("e : ", e);
     }
   }
 });
-
 //requete PUT
 
 const formIsValid = (article) => {
