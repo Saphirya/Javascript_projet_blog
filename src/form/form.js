@@ -1,3 +1,4 @@
+import { openModal } from "../assets/javascripts/modal.js";
 import "../assets/javascripts/topbar.js";
 import "../assets/styles/styles.scss";
 import "./form.scss";
@@ -52,9 +53,13 @@ initForm();
 
 let errors = [];
 
-btnCancel.addEventListener("click", (event) => {
-  event.preventDefault();
-  location.assign("/");
+btnCancel.addEventListener("click", async (event) => {
+  const result = await openModal(
+    "Si vous quittez cette page, vous allez perdre vos modifications."
+  );
+  if (result) {
+    location.assign("/");
+  }
 });
 
 form.addEventListener("submit", async (event) => {

@@ -1,13 +1,12 @@
 let calc;
 let modal;
+let cancel;
+let confirm;
 const body = document.querySelector("body");
 
 const createCalc = () => {
   calc = document.createElement("div");
   calc.classList.add("calc");
-  calc.addEventListener("click", (e) => {
-    calc.remove();
-  });
 };
 
 const creatModal = (question) => {
@@ -16,13 +15,15 @@ const creatModal = (question) => {
   modal.innerHTML = `
   <p>${question}</p>
 `;
-  const cancel = document.createElement("button");
+  cancel = document.createElement("button");
   cancel.innerText = "Annuler";
   cancel.classList.add("btn", "btn-secondary");
-  const confirm = document.createElement("button");
+  confirm = document.createElement("button");
   confirm.innerText = "Confirmer";
   confirm.classList.add("btn", "btn-primary");
-
+  modal.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
   modal.append(cancel, confirm);
 };
 
@@ -31,4 +32,20 @@ export function openModal(question) {
   creatModal(question);
   calc.append(modal);
   body.append(calc);
+  return new Promise((resolve, reject) => {
+    calc.addEventListener("click", (e) => {
+      resolve(false);
+      calc.remove();
+    });
+
+    cancel.addEventListener("click", (e) => {
+      resolve(false);
+      calc.remove();
+    });
+
+    confirm.addEventListener("click", (e) => {
+      resolve(true);
+      calc.remove();
+    });
+  });
 }
