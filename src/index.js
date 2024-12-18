@@ -4,8 +4,16 @@ import "./index.scss";
 
 const articleContainerElement = document.querySelector(".articles-container");
 const categoriesContainerElement = document.querySelector(".categories");
+const selectElement = document.querySelector("select");
 let filter;
 let articles;
+let sortBy = "desc";
+
+selectElement.addEventListener("change", (event) => {
+  sortBy = selectElement.value;
+  fetchArticles();
+  console.log(sortBy);
+});
 
 const createArticles = () => {
   const articlesDom = articles
@@ -136,7 +144,9 @@ const createMenuCategories = () => {
 //requete GET
 const fetchArticles = async () => {
   try {
-    const response = await fetch("https://restapi.fr/api/article");
+    const response = await fetch(
+      `https://restapi.fr/api/article?sort=createdAt:${sortBy}`
+    );
     articles = await response.json();
     console.log("Données reçues :", articles);
     // Transformez en tableau si un seul article est retourné
